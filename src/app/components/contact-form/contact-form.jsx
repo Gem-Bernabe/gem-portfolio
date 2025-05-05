@@ -1,37 +1,47 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { Label } from "@/components/ui/label"
-import { Send } from "lucide-react"
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Label } from "@/components/ui/label";
+import { Send } from "lucide-react";
 
 export function ContactForm() {
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [isSubmitted, setIsSubmitted] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
-    setIsSubmitting(true)
+    e.preventDefault();
+    setIsSubmitting(true);
 
     // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500))
+    await new Promise((resolve) => setTimeout(resolve, 1500));
 
-    setIsSubmitting(false)
-    setIsSubmitted(true)
-  }
+    setIsSubmitting(false);
+    setIsSubmitted(true);
+  };
 
   if (isSubmitted) {
     return (
       <Card>
         <CardHeader>
           <CardTitle>Message Sent!</CardTitle>
-          <CardDescription>Thank you for reaching out. We'll get back to you as soon as possible.</CardDescription>
+          <CardDescription>
+            Thank you for reaching out. We'll get back to you as soon as
+            possible.
+          </CardDescription>
         </CardHeader>
       </Card>
-    )
+    );
   }
 
   return (
@@ -39,7 +49,9 @@ export function ContactForm() {
       <form onSubmit={handleSubmit}>
         <CardHeader>
           <CardTitle>Send a Message</CardTitle>
-          <CardDescription>Fill out the form below and we'll respond as soon as possible.</CardDescription>
+          <CardDescription>
+            Fill out the form below and we'll respond as soon as possible.
+          </CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
           <div className="space-y-2">
@@ -48,11 +60,21 @@ export function ContactForm() {
           </div>
           <div className="space-y-2">
             <Label htmlFor="email">Email</Label>
-            <Input id="email" type="email" placeholder="Your email address" required />
+            <Input
+              id="email"
+              type="email"
+              placeholder="Your email address"
+              required
+            />
           </div>
           <div className="space-y-2">
             <Label htmlFor="message">Message</Label>
-            <Textarea id="message" placeholder="Your message..." className="min-h-[120px]" required />
+            <Textarea
+              id="message"
+              placeholder="Your message..."
+              className="min-h-[120px]"
+              required
+            />
           </div>
         </CardContent>
         <CardFooter>
@@ -69,5 +91,5 @@ export function ContactForm() {
         </CardFooter>
       </form>
     </Card>
-  )
+  );
 }
