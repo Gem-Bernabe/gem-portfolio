@@ -1,20 +1,20 @@
-"use client";
+"use client"
 
-import { useEffect, useState } from "react";
-import Image from "next/image";
-import Link from "next/link";
-import { Code, Camera, Github, Linkedin, Mail } from "lucide-react";
+import { useEffect, useState } from "react"
+import Image from "next/image"
+import Link from "next/link"
+import { Code, Camera, Github, Linkedin, Mail } from "lucide-react"
 
 export default function Home() {
-  const [isLoaded, setIsLoaded] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false)
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setIsLoaded(true);
-    }, 300);
+      setIsLoaded(true)
+    }, 300)
 
-    return () => clearTimeout(timer);
-  }, []);
+    return () => clearTimeout(timer)
+  }, [])
 
   return (
     <main
@@ -48,8 +48,8 @@ export default function Home() {
         <div className="relative mb-8">
           <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-white/10 relative">
             <Image
-              src="/public/images/initial logo.png"
-              alt="my custom image"
+              src="/images/initial-logo.png"
+              alt="Mark Gem Bernabe"
               width={200}
               height={200}
               className="object-cover w-full h-full"
@@ -64,9 +64,7 @@ export default function Home() {
           </div>
         </div>
 
-        <h1 className="text-4xl md:text-5xl font-bold mb-3 text-white">
-          Mark Gem Bernabe
-        </h1>
+        <h1 className="text-4xl md:text-5xl font-bold mb-3 text-white">Mark Gem Bernabe</h1>
 
         <div className="flex items-center justify-center gap-3 mb-6">
           <span className="text-blue-400 font-medium">Web Developer</span>
@@ -77,19 +75,18 @@ export default function Home() {
         </div>
 
         <p className="text-lg text-white/80 mb-8 max-w-lg">
-          Blending design, code, and photography to create meaningful digital
-          stories.
+          Blending design, code, and photography to create meaningful digital stories.
         </p>
 
         <div className="flex flex-wrap gap-4 justify-center">
           <Link
-            href="#"
+            href="/gem-profile/work"
             className="px-6 py-2 bg-white text-slate-900 rounded-md hover:bg-white/90 transition-colors"
           >
             My Work
           </Link>
           <Link
-            href="#"
+            href="/gem-profile/contact"
             className="px-6 py-2 border border-white/20 text-white rounded-md hover:bg-white/10 transition-colors"
           >
             Contact Me
@@ -97,5 +94,5 @@ export default function Home() {
         </div>
       </div>
     </main>
-  );
+  )
 }
